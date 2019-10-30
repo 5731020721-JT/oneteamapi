@@ -602,7 +602,7 @@ const getName = async (req, res) => {
       var paramsIden = {
         'personGroupId': 'oneteam',
         'faceIds': arrfaceid,
-        'confidenceThreshold': 0.7,
+        'confidenceThreshold': 0.5,
         'maxNumOfCandidatesReturned': 1
       };
 
@@ -675,6 +675,7 @@ const getName = async (req, res) => {
           console.log(body1[0].candidates[0]);
           if (body1[0].candidates[0] != undefined) {
             var identifyId = body1[0].candidates[0].personId;
+             var confidence = body1[0].candidates[0].confidence;
             console.log(body1[0].candidates[0]);
           }
           /*
@@ -709,16 +710,20 @@ const getName = async (req, res) => {
             var cluster_json = '{"cluster": "' + cluster + '"}';
             var gender_json = '{"gender": "' + gender + '"}';
             var age_json = '{"age": "' + age + '"}';
+            
 
             var clustering = JSON.parse(cluster_json);
             var gendering = JSON.parse(gender_json);
             var aging = JSON.parse(age_json);
+            
 
             if (body2 != undefined) {
               var name_json = '{"name": "' + JSON.parse(body2).name + '"}';
               var naming = JSON.parse(name_json);
+              var confidence_json ='{"confidence": + confidence + '"}';
+              var confidencing = JSON.parse(confidence_json);
 
-              var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming);
+              var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming,confidencing);
               res.send(obj);
             }
             else {
