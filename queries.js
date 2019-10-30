@@ -756,7 +756,7 @@ const getDiscount = (request, response) => {
       console.log("price: " + price);
       console.log("cluster: " + cluster);
       console.log("coupon: " + results.rows[0].coupon);
-      if (price > results.rows[0].round_500) {
+      if (price > parseInt(results.rows[0].round_500)) {
         console.log("//////////////coupon////////////");
         var total = price - results.rows[0].coupon;
         console.log("total: " + total);
@@ -764,7 +764,7 @@ const getDiscount = (request, response) => {
         var totally = JSON.parse(total_json);
         response.json(totally);
       }
-      else if (price < results.rows[0].round_500) {
+      else if (price < parseInt(results.rows[0].round_500) ) {
         console.log("//////////////normal////////////");
         var total_json2 = '{"total": "' + JSON.parse(price) + '"}';
         var totally2 = JSON.parse(total_json2);
