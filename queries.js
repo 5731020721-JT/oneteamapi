@@ -675,7 +675,7 @@ const getName = async (req, res) => {
           console.log(body1[0].candidates[0]);
           if (body1[0].candidates[0] != undefined) {
             var identifyId = body1[0].candidates[0].personId;
-             var confidence = body1[0].candidates[0].confidence;
+            // var confidence = body1[0].candidates[0].confidence;
             console.log(body1[0].candidates[0]);
           }
           /*
@@ -720,10 +720,10 @@ const getName = async (req, res) => {
             if (body2 != undefined) {
               var name_json = '{"name": "' + JSON.parse(body2).name + '"}';
               var naming = JSON.parse(name_json);
-              var confidence_json ='{"confidence": + confidence + '"}';
-              var confidencing = JSON.parse(confidence_json);
+             // var confidence_json ='{"confidence": + confidence + '"}';
+            //  var confidencing = JSON.parse(confidence_json);
 
-              var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming,confidencing);
+              var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming);
               res.send(obj);
             }
             else {
