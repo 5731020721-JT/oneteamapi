@@ -402,7 +402,7 @@ const getMonthBook = async (req, res) => {
         var paramsIden = {
           'personGroupId': 'oneteam',
           'faceIds': arrfaceid,
-          'confidenceThreshold': 0.7,
+          'confidenceThreshold': 0.5,
           'maxNumOfCandidatesReturned': 1
         };
 
