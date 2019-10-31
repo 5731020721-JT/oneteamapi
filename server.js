@@ -38,6 +38,9 @@ var cors = require('cors')
 const bodyParser = require('body-parser')
 const db = require('./queries')
 
+var multer = require('multer')
+var multerAzure = require('multer-azure')
+
 //book
 const SCB = require('./library/scb')
 
