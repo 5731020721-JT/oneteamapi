@@ -726,6 +726,9 @@ const getName = async (req, res) => {
               console.log(aging);
               console.log(clustering);
               console.log(naming);
+              console.log(results.rows[0]);
+              console.log(results.rows);
+              console.log(results);
               var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming);
               res.send(obj);
             }
