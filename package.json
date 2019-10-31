@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node server.js"
   },
+   "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -12,6 +16,9 @@
     "express": "^4.17.1",
     "pg": "^7.11.0",
     "request": "^2.88.0",
-    "tedious": "^6.4.0"
+    "tedious": "^6.4.0",
+    "multer": "^1.4.2",
+    "multer-azure": "^2.0.1",
+    "multer-azure-blob-storage": "^1.0.2"
   }
 }
