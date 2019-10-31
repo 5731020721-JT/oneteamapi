@@ -722,7 +722,10 @@ const getName = async (req, res) => {
               var naming = JSON.parse(name_json);
              // var confidence_json ='{"confidence": + confidence + '"}';
             //  var confidencing = JSON.parse(confidence_json);
-
+               console.log(gendering);
+              console.log(aging);
+              console.log(clustering);
+              console.log(naming);
               var obj = Object.assign(results.rows[0], gendering, aging, clustering, naming);
               res.send(obj);
             }
