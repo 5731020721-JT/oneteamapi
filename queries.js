@@ -154,7 +154,7 @@ const getGraph = (req, res) => {
   var flag = 1;
   //var dateb  = new Date('1999-01-01');
 
-  pool.query('SELECT * FROM public_b1.retail_comp WHERE item_id = $1 and ( SELECT max(timestamp) FROM public_b1.retail_comp )- date(timestamp) < 7 ;', [id], (error, results) => {
+  pool.query('SELECT * FROM public_b1.retail_comp WHERE item_id = $1 and ( SELECT max(timestamp) FROM public_b1.retail_comp )- date(timestamp) < 7 order by timestamp ;', [id], (error, results) => {
     if (error) {
       throw error
     }
