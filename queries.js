@@ -767,7 +767,7 @@ const getDiscount = (request, response) => {
       console.log("price: " + price);
       console.log("cluster: " + cluster);
       console.log("coupon: " + results.rows[0].coupon);
-      if (price > parseInt(results.rows[0].round_500)) {
+      if (price >= parseInt(results.rows[0].round_500)) {
         console.log("//////////////coupon////////////");
         var total = price - results.rows[0].coupon;
         console.log("total: " + total);
