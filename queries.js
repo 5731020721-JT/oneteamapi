@@ -42,7 +42,7 @@ const getProd = (request, response) => {
 
 //get picture
 const getPic = (request, response) => {
-  pool.query('SELECT itemcode , name , pic_item FROM public_b1.new_item_offer;', (error, results) => {
+  pool.query('SELECT distinct itemcode , name , pic_item FROM public_b1.new_item_offer;', (error, results) => {
     if (error) {
       throw error
     }
