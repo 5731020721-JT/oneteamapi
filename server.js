@@ -97,6 +97,33 @@ app.get('/getdiscount/:price/:cluster', cors(issue2options), db.getDiscount);
 
 
 
+//blob
+var blobPath = 'name';
+
+var upload = multer({ 
+  storage: multerAzure({
+    connectionString: 'DefaultEndpointsProtocol=https;AccountName=oneteamblob;AccountKey=qcv7bSwg5vFNZRt1gY9XLPcv6OWKdKakKCj5znpUQRNQTPAOkLbhnCuZpt/1m4Gc9f5tV55x0CEzcVWjCubTaQ==;EndpointSuffix=core.windows.net', //Connection String for azure storage account, this one is prefered if you specified, fallback to account and key if not.
+    account: 'oneteamblob', //The name of the Azure storage account
+    key: 'qcv7bSwg5vFNZRt1gY9XLPcv6OWKdKakKCj5znpUQRNQTPAOkLbhnCuZpt/1m4Gc9f5tV55x0CEzcVWjCubTaQ==', //A key listed under Access keys in the storage account pane
+    container: 'profilepicture',  //Any container name, it will be created if it doesn't exist
+    blobPathResolver: function(req, file, callback){
+    blobPath = Date.now().toString() + '.png'; //Calculate blobPath in your own way.
+   //blobPath = 'vision.png'
+      callback(null, blobPath);
+    }
+  })
+})
+ 
+app.post('/upload', upload.any(), function (req, res, next) {
+  console.log(req.files);
+  res.json('{"Uploaded":"'+blobPath+'"}');
+})
+
+
+
+
+
+
 
   
 app.listen(port, () => {
