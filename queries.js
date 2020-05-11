@@ -555,7 +555,7 @@ const getName = async (req, res) => {
   // face start //
   //initial//
   // Replace <Subscription Key> with your valid subscription key.
-  const subscriptionKey = '8b1838e13407455daf92a98bd51016ba';
+  const subscriptionKey = '3e4e593efb9f4d2d903e7c7e85cebab0';
 
 
   // You must use the same location in your REST call as you used to get your
